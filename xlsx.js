@@ -166,26 +166,27 @@ function xlsx(file) {
 				j = -1; k = data[i].length;
 				s += '<row r="' + (i + 1) + '" x14ac:dyDescent="0.25">';
 				while (++j < k) {
-//					try {
-//					cell = data[i][j]; val = (cell.hasOwnProperty('value') ? cell.value : cell); t = ''; 
-//					} catch (e) { continue; }
-//					// supported styles: borders, hAlign, formatCode and font style
-//					if (typeof cell === "object") {
-//						style = {
-//							borders: cell.borders, 
-//							hAlign: cell.hAlign,
-//							vAlign: cell.vAlign,
-//							bold: cell.bold,
-//							italic: cell.italic,
-//							fontName: cell.fontName,
-//							fontSize: cell.fontSize,
-//							formatCode: cell.formatCode || 'General'
-//						};
-//					} else {
-//						style = {
-//							formatCode: "General"
-//						}
-//					}
+					try {
+					cell = data[i][j]; val = (cell.hasOwnProperty('value') ? cell.value : cell); t = ''; 
+					} catch (e) { continue; }
+					// supported styles: borders, hAlign, formatCode and font style
+					if (typeof cell === "object") {
+						style = {
+							borders: cell.borders, 
+							hAlign: cell.hAlign,
+							vAlign: cell.vAlign,
+							bold: cell.bold,
+							italic: cell.italic,
+							fontName: cell.fontName,
+							fontSize: cell.fontSize,
+							formatCode: cell.formatCode || 'General'
+						};
+					} else {
+						style = {
+							formatCode: "General"
+						}
+					}
+/*
 					cell = data[i][j]; val = cell.hasOwnProperty('value') ? cell.value : cell; t = '';
 					style = { // supported styles: borders, hAlign, formatCode and font style
 						borders: cell.borders, 
@@ -197,7 +198,7 @@ function xlsx(file) {
 						fontSize: cell.fontSize,
 						formatCode: cell.formatCode || 'General'
 					};
-
+*/
 					colWidth = 0;
 					if (val && typeof val === 'string' && !isFinite(val)) { 
 						// If value is string, and not string of just a number, place a sharedString reference instead of the value
