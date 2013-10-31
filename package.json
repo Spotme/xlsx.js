@@ -1,12 +1,16 @@
 {
   "name": "xlsx.js",
-  "version": "2.3.2",
+  "version": "2.3.3",
   "author": "Stephen Hardy",
   "description": "Convert data in base64 XLSX files into JavaScript objects - and back!",
   "contributors": [ 
     {
       "name": "Damien Feugas",
       "email": "damien.feugas@gmail.com"
+    },
+    {
+      "name": "Nick Pappas",
+      "email": "nick@spotme.com"
     } 
   ],
   "keywords": [
@@ -20,7 +24,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/stephen-hardy/xlsx.js"
+    "url": "https://github.com/Spotme/xlsx.js"
   },
   "engine": { 
     "node": ">=0.8.1"
