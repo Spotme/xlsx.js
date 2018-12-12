@@ -31,7 +31,7 @@
   },
   "main": "xlsx.js",
   "dependencies": {
-    "node-zip": "1.0.1"
+    "node-zip": "1.1.1"
   },
   "devDependencies": {
     "mocha": "1.8.2",
