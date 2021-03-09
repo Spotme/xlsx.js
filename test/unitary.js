@@ -22,8 +22,8 @@ describe('XlsX.js unit tests', function () {
       lastModifiedBy: 'Meg White',
       worksheets: [{
         data: [
-          ['green', 'white', { value: 'orange', autoWidth: true }, 'blue', 'red'],
-          ['1', '2', '3', '4', '5'],
+          ['green', 'white', { value: 'orange', autoWidth: true }, 'blue', '"red'],
+          ['1', '"2', '<3', '>4', '5\''],
           [6, 7, 8, 9, 10]
         ],
         table: true,
@@ -69,13 +69,13 @@ describe('XlsX.js unit tests', function () {
             { value: 'white', formatCode: 'General' },
             { value: 'orange', formatCode: 'General' },
             { value: 'blue', formatCode: 'General' },
-            { value: 'red', formatCode: 'General' }
+            { value: '"red', formatCode: 'General' }
           ], [
             { value: '1', formatCode: 'General' },
-            { value: '2', formatCode: 'General' },
-            { value: '3', formatCode: 'General' },
-            { value: '4', formatCode: 'General' },
-            { value: '5', formatCode: 'General' }
+            { value: '"2', formatCode: 'General' },
+            { value: '<3', formatCode: 'General' },
+            { value: '>4', formatCode: 'General' },
+            { value: '5\'', formatCode: 'General' }
           ], [
             { value: 6, formatCode: 'General' },
             { value: 7, formatCode: 'General' },
