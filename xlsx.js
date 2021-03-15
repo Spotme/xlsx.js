@@ -43,9 +43,25 @@ function xlsx(file) {
 		s = s.substr(s.indexOf(n + '="') + n.length + 2); return s.substring(0, s.indexOf('"'));
 	}
 
-	function escapeXML(s) { return typeof s === 'string' ? s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;').replace(/'/g, '&#x27;') : ''; }
+	function escapeXML(s) {
+		return typeof s === 'string' ?
+			s.replace(/&/g, '&amp;')
+				.replace(/</g, '&lt;')
+				.replace(/>/g, '&gt;')
+				.replace(/"/g, '&quot;')
+				.replace(/'/g, '&#x27;')
+			: '';
+	}
 
-	function unescapeXML(s) { return typeof s === 'string' ? s.replace(/&amp;/g, '&').replace(/&lt;/g, '<').replace(/&gt;/g, '>').replace(/&quot;/g, '"').replace(/&#x27;/g, '\'') : ''; }
+	function unescapeXML(s) {
+		return typeof s === 'string' ?
+			s.replace(/&amp;/g, '&')
+				.replace(/&lt;/g, '<')
+				.replace(/&gt;/g, '>')
+				.replace(/&quot;/g, '"')
+				.replace(/&#x27;/g, '\'')
+			: '';
+	}
 
    if (typeof file === 'string') { // Load
 		zipTime = Date.now();
@@ -315,7 +331,7 @@ function xlsx(file) {
 				s = '<?xml version="1.0" encoding="UTF-8" standalone="yes"?><table xmlns="http://schemas.openxmlformats.org/spreadsheetml/2006/main" id="' + id
 					+ '" name="Table' + id + '" displayName="Table' + id + '" ref="A1:' + t + '" totalsRowShown="0"><autoFilter ref="A1:' + t + '"/><tableColumns count="' + data[0].length + '">';
 				while (++i < l) {
-					s += '<tableColumn id="' + (i + 1) + '" name="' + (data[0][i].hasOwnProperty('value') ? data[0][i].value : data[0][i]) + '"/>';
+					s += '<tableColumn id="' + (i + 1) + '" name="' + escapeXML(data[0][i].hasOwnProperty('value') ? data[0][i].value : data[0][i]) + '"/>';
 				}
 				s += '</tableColumns><tableStyleInfo name="TableStyleMedium2" showFirstColumn="0" showLastColumn="0" showRowStripes="1" showColumnStripes="0"/></table>';
 
